@@ -10,8 +10,6 @@ export default class SimpleRemoteOutlet {
     private switchService: any;
     private type: string;
     private log: any
-    private http_method: any
-    private default_state_off: any
     private name: any
     constructor(log: any, config: any) {
         this.log = log

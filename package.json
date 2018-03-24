@@ -1,7 +1,7 @@
 {
-  "name": "homebridge-simple-http",
+  "name": "homebridge-simple-remote-outlet",
   "version": "0.0.1",
-  "description": "Simple HTTP Switch for HomeBridge",
+  "description": "Simple Remote Outlet Switch for HomeBridge",
   "license": "MIT",
   "main": "./build/index.js",
   "keywords": [
