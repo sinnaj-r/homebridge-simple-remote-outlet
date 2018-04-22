@@ -38,6 +38,7 @@
   "dependencies": {
     "@types/request": "^2.47.0",
     "@types/request-promise-native": "^1.0.14",
+    "rcswitch": "^0.3.1",
     "request": "^2.85.0",
     "request-promise-native": "^1.0.5",
     "ts-node": "^5.0.1"
