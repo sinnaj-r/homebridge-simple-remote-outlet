@@ -3,12 +3,12 @@ declare var Service: any
 declare var Characteristic: any
 
 export default class SimpleRemoteOutlet {
-    private onState: boolean;
-    private systemcode: string;
-    private unitcode: number;
-    private pin: number;
-    private switchService: any;
-    private type: string;
+    private onState: boolean
+    private systemcode: string
+    private unitcode: number
+    private pin: number
+    private switchService: any
+    private type: string
     private log: any
     private name: any
     constructor(log: any, config: any) {
@@ -23,16 +23,22 @@ export default class SimpleRemoteOutlet {
         this.systemcode = config["systemcode"] || "10000"
         this.unitcode = config["unitcode"] || 1
 
-        this.onState = false
-        rcswitch.enableTransmit(this.pin);
+        this.onState = config["onState"] || false
+        rcswitch.enableTransmit(this.pin)
     }
     getServices() {
         let informationService = new Service.AccessoryInformation()
 
         informationService
-            .setCharacteristic(Characteristic.Manufacturer, "Dock51 UG")
-            .setCharacteristic(Characteristic.Model, "Dock51 Remote Outlet")
-            .setCharacteristic(Characteristic.SerialNumber, "de.dock51.mk1")
+            .setCharacteristic(
+                Characteristic.Manufacturer,
+                "SimpleRemoteOutlet Manufacturer"
+            )
+            .setCharacteristic(Characteristic.Model, "Simple Remote Outlet")
+            .setCharacteristic(
+                Characteristic.SerialNumber,
+                "de.jannisrosenbaum.SimpleRemoteOutlet"
+            )
 
         this.switchService = new Service[this.type]()
         this.switchService
@@ -43,18 +49,17 @@ export default class SimpleRemoteOutlet {
         return [this.switchService]
     }
     setPowerState(powerOn: boolean, callback: (error?: Error) => void) {
-        if(powerOn){
+        if (powerOn) {
             this.onState = true
             rcswitch.switchOn(this.systemcode, this.unitcode)
-        }
-        else {
+        } else {
             this.onState = false
             rcswitch.switchOff(this.systemcode, this.unitcode)
         }
         callback()
     }
     getPowerState(callback: (error: Error | null, state?: boolean) => void) {
-       callback(null, this.onState)
+        callback(null, this.onState)
     }
     identify(callback: (error?: Error) => void) {
         this.log("Identify requested!")

@@ -14,15 +14,15 @@ var SimpleRemoteOutlet = /** @class */ (function () {
         this.pin = config["pin"] || 0;
         this.systemcode = config["systemcode"] || "10000";
         this.unitcode = config["unitcode"] || 1;
-        this.onState = false;
+        this.onState = config["onState"] || false;
         rcswitch_1.default.enableTransmit(this.pin);
     }
     SimpleRemoteOutlet.prototype.getServices = function () {
         var informationService = new Service.AccessoryInformation();
         informationService
-            .setCharacteristic(Characteristic.Manufacturer, "Dock51 UG")
-            .setCharacteristic(Characteristic.Model, "Dock51 Remote Outlet")
-            .setCharacteristic(Characteristic.SerialNumber, "de.dock51.mk1");
+            .setCharacteristic(Characteristic.Manufacturer, "SimpleRemoteOutlet Manufacturer")
+            .setCharacteristic(Characteristic.Model, "Simple Remote Outlet")
+            .setCharacteristic(Characteristic.SerialNumber, "de.jannisrosenbaum.SimpleRemoteOutlet");
         this.switchService = new Service[this.type]();
         this.switchService
             .getCharacteristic(Characteristic.On)

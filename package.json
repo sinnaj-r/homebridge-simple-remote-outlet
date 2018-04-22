@@ -1,7 +1,7 @@
 {
   "name": "homebridge-simple-remote-outlet",
   "version": "0.0.1",
-  "description": "Simple Remote Outlet Switch for HomeBridge",
+  "description": "Simple 403Mhz Remote Outlet Switch for HomeBridge",
   "license": "MIT",
   "main": "./build/index.js",
   "keywords": [
@@ -10,6 +10,11 @@
   "engines": {
     "node": ">=0.12.0",
     "homebridge": ">=0.2.0"
+  },
+  "repository":
+    { 
+      "type" : "git",
+      "url" : "https://github.com/sinnaj-r/homebridge-simple-remote-outlet"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
